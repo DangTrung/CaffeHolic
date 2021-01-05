@@ -8,7 +8,7 @@
     <%= form_for [:admin, @article], url: {action: :create, controller: :article}, method: :post, :html => {:multipart => true} do |f|%>
       <%= render 'shared/error_art'%>
       <h5>Choose Category</h5>
-      <%= f.select(:category_ids, options_for_select(@category.map{ |c| [c.name, c.id, :class => 'rounded-circle']}, :selected => @selected), {}, {:multiple => true, class: "multiple form-control"})%>
+      <%= f.select(:category_ids, options_for_select(@category.map{ |c| [c.name, c.id, :class => 'rounded-circle']}, :selected => @selected), {}, {:multiple => true, class: "multiple form-control", required: true})%>
       <br>
       <h5>New Post</h5>
       <%= f.label :title %>

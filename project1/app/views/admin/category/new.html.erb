@@ -9,7 +9,7 @@
       <%= f.label :slug %>
       <%= f.text_field :slug,  class: 'form-control', id: 'demo' %>
       <%= f.label :parent_id %>
-      <%= f.select :parent_id, options_for_select( @parent.map{ |c| [c.name, c.id]}), { :include_blank => true}, class: 'form-control' %>
+      <%= f.select :parent_id, options_for_select( @parent.map{ |c| [c.name, c.id]}, :selected => @selected), { :include_blank => true}, class: 'form-control' %>
       <br>
       <%= f.submit "Save changes", class: "btn btn-primary"%>
     <% end %>

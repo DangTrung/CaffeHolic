@@ -1,0 +1,2 @@
+class ObjectCategory < ApplicationRecord
+end

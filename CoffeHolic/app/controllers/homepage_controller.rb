@@ -3,8 +3,10 @@ class HomepageController < ApplicationController
     @category = Category.all
   end
   def contact
+    @category = Category.all
   end
   def about
+    @category = Category.all
   end
   def product
     @product = Product.all

@@ -16,8 +16,9 @@ class Admin::UserController < Admin::BaseController
         @role = Role.all
         if @user.save
           flash[:success] = 'Sucessfull creating new user'
-          redirect_to :controller => 'dashboard', :action => 'index'
+          redirect_to :action => 'index'
         else
+          @selected = params[:user][:role_id]
           render 'new'
         end
        
@@ -28,11 +29,12 @@ class Admin::UserController < Admin::BaseController
         @destroy.destroy
         flash[:success]= "User Deleted"
         @user = User.all
-        redirect_to :action => 'showalluser'
+        redirect_to :action => 'index'
     end
     def edit
         @role = Role.all
         @user = User.find_by(id: params[:id])
+        @selected = @user.role_id
     end
     def update
         @user = User.find_by(id: params[:id])
@@ -41,7 +43,8 @@ class Admin::UserController < Admin::BaseController
               redirect_to :controller => 'dashboard', :action => 'index'
           else
             @role = Role.all
-              render 'edit'
+            @selected = params[:user][:role_id]
+            render 'edit'
           end
       end
     private 

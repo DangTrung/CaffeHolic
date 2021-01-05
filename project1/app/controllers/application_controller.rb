@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do
     render "errors/forbidden", status: 403
   end
+  rescue_from ActiveRecord::RecordNotFound do
+    render "errors/show"
+  end
 
   protected
  

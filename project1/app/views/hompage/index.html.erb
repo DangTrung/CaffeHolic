@@ -1,11 +1,11 @@
 <section class="section first-section">
             <div class="container-fluid">
                 <div class="masonry-blog clearfix">
-                <%@news.each do |i|%>
+                <%news.each do |i|%>
                     <div class="left-side">
                         <div class="masonry-box post-media">
                             <%if i.image_url.url%>
-                             <%=image_tag i.image_url.url, class: "img-fluid"%>
+                             <%=image_tag i.image_url.url, class: "img"%>
                              <%end%>
                              <div class="shadoweffect">
                                 <div class="shadow-desc">
@@ -14,7 +14,7 @@
                                         <span class="bg-aqua"><a href="<%=showcate_path(i.slug)%>" title=""><%=i.name%></a></span>
                                         <%end%>
                                         <h4><a href="<%=show_path(i.slug)%>" title=""><%=i.title%></a></h4>
-                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at%></a></small>
+                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at.strftime("%d-%m-%Y")%></a></small>
                                         <small><a href="" title=""></a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->
@@ -56,8 +56,7 @@
                                         <%i.categories.each do |f|%>
                                         <small><a href="<%=showcate_path(f.slug)%>" title=""><%=f.slug%></a></small>
                                         <%end%>
-                                        <small><a href="" title=""><%=i.created_at%></a></small>
-                                        <small><a href="blog-author.html" title="">by Trung</a></small>
+                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at.strftime("%d-%m-%Y")%></a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
@@ -74,7 +73,7 @@
                         <div class="row">
                             
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <%@news2.each do |i|%>
+                            <%news2.each do |i|%>
                                 <div class="blog-box">
                                     <div class="post-media">
                                         <a href="<%=show_path(i.slug)%>" title="">
@@ -91,7 +90,7 @@
                                         <%i.categories.each do |f|%>
                                         <small><a href="<%=showcate_path(f.slug)%>" title=""><%=f.name%></a></small>
                                         <%end%>
-                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at%></a></small>
+                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at.strftime("%d-%m-%Y")%></a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
@@ -118,7 +117,7 @@
                                         <%i.categories.each do |f|%>
                                         <small><a href="<%=showcate_path(f.slug)%>" title=""><%=f.name%></a></small>
                                         <%end%>
-                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at%></a></small>
+                                        <small><a href="<%=show_path(i.slug)%>" title=""><%=i.created_at.strftime("%d-%m-%Y")%></a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
@@ -147,7 +146,7 @@
                 <div class="row">
                  
                     <div class="col-lg-9">
-                      <%@news.each do |i|%> 
+                      <% news.each do |i|%> 
                         <div class="blog-list clearfix">
                             <div class="section-title">
                             <% i.categories.each do |f|%>
@@ -160,7 +159,7 @@
                                     <div class="post-media">
                                         <a href="<%=show_path(i.slug)%>" title="">
                                          <%if i.image_url.url%>
-                                            <%= image_tag (i.image_url.url if i.image_url?), class: "img-fluid"%>
+                                            <%= image_tag (i.image_url.url), class: "img-fluid"%>
                                          <%end%>
                                             <div class="hovereffect"></div>
                                         </a>
@@ -173,7 +172,7 @@
                                     <% i.categories.each do |f|%>
                                     <small><a href="<%=show_path(f.slug)%>" title=""><%=f.name%></a></small>
                                     <%end%>
-                                    <small><%=i.created_at%></small>
+                                    <small><%=i.created_at.strftime("%d-%m-%Y")%></small>
                                 </div><!-- end meta -->
                             </div>
 
@@ -205,7 +204,7 @@
                                 <%i.categories.each do |f|%>
                                 <small><a href="<%=showcate_path(f.slug)%>" title=""><%=f.name%></a></small>
                                 <%end%>
-                                <small><%=i.created_at%></small>
+                                <small><%=i.created_at.strftime("%d-%m-%Y")%></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -225,5 +224,5 @@
                         </div><!-- end banner -->
                     </div><!-- end col -->
                 </div><!-- end row -->
-            </div><!-- end container -->
+            </div>
         </section>

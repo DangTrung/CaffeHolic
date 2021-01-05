@@ -7,7 +7,7 @@
     <%= form_for [:admin, @user], url: {action: :create, controller: :user} do |f| %>
       <%= render 'shared/error_messages'%>
       <%= f.label :role_id %>
-      <%= f.select :role_id, options_for_select(@role.map{|c| [c.role_name, c.id]}),{}, class: 'form-control'%>
+      <%= f.select :role_id, options_for_select(@role.map{|c| [c.role_name, c.id]}, :selected => @selected), { :include_blank => true} , class: 'form-control'%>
       <%= f.label :avatar%>
       <%= f.file_field :avatar,  accept: "image/jpeg, image/gif, image/png, image/jpg", class: 'form-control-file'%>
       <%= f.label :name %>

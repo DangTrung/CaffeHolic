@@ -15,6 +15,7 @@ class Admin::CategoryController < Admin::BaseController
         if @category.save
             redirect_to :controller => 'category', :action => 'index'
         else
+            @selected = params[:category][:parent_id]
             render 'new'
         end
     end

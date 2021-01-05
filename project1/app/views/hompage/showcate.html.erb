@@ -42,7 +42,7 @@
                                                 <%=image_tag i.image_url.url, class: "img-fluid float-left"%>
                                             <%end%>
                                                 <h5 class="mb-1"><%=i.title%></h5>
-                                                <small><%=i.created_at%></small>
+                                                <small><%=i.created_at.strftime("%d-%m-%Y")%></small>
                                             </div>
                                         </a>
                                         <%end%>
@@ -65,7 +65,7 @@
                                 <h2 class="widget-title">Popular Categories</h2>
                                 <div class="link-widget">
                                     <ul>
-                                      <%@allcate.each do |cate|%>
+                                      <%allcate.each do |cate|%>
                                         <li>
                                         <a href="<%=showcate_path(cate.slug)%>"><%= cate.name%> <span><%=cate.articles.where(status: :public).count%></span></a>
                                          </li>
@@ -107,8 +107,7 @@
                                         <div class="blog-meta">
                                             <span class="bg-pink"><a href="blog-category-01.html" title=""><%=@showcate.name%></a></span>
                                             <h4><a href="<%=show_path(i.slug)%>" title=""><%=i.title%></a></h4>
-                                            <small><a href="<%=show_path(i.slug)%>" title="">By: Trung</a></small>
-                                            <small><a href="<%=show_path(i.slug)%>" title=""><%= i.created_at%></a></small>
+                                            <small><a href="<%=show_path(i.slug)%>" title=""><%= i.created_at.strftime("%d-%m-%Y")%></a></small>
                                         </div><!-- end meta -->
                                     </div><!-- end blog-box -->
                                 </div><!-- end col -->
