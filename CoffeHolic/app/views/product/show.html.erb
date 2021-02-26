@@ -8,14 +8,13 @@
                     <h2 class="name text-orange font-italic">Euro Espresso Coffee</h2>
                     <h2 class="price text-secondary font-italic"><%=@product.price%></h2>
                     <p class="description text-secondary">
-                        Our European-style espresso blend. A traditional European style espresso blend with a prominent
-                        bitterness, a unique savory finish, and a higher caffeine content.
+                        <%= @product.description%>
                     </p>
-                    <input type="number" value="1" step="1" min="1" max="" size="5"
-                        class="text-orange text-center bg-none p-2 font-italic">
-                    <button class="btn btn-outline-orange py-2 rounded-0 font-italic ml-3">
-                        ADD TO CART
-                    </button>
+                    <%= form_with model: OrderProduct.new, remote: true do |f|%>
+                        <%= f.hidden_field :product_id, value: @product.id %>
+                        <%= f.number_field :quantity, in: 1..20, step: 1, :class => "text-orange text-center bg-none p-2 font-italic"%>
+                        <%= f.submit "ADD TO CART", class: "btn btn-outline-orange py-2 rounded-0 font-italic ml-3"%>
+                    <% end %>
                 </div>
             </div>
         </div>

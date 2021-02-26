@@ -9,5 +9,5 @@ category= Category.create!([{ name: 'Arabica'}, { name: ' Robusta '}, {name: 'Li
 product = Product.create!([{name: 'Coffe Holic', price: 140000, image: 'roastey.png', description: 'it mix 50% Arabica beans and 50% Robusta'},
     {name: 'Coffe Love', price: 140000, image: 'w3.png', description: 'it mix 50% Arabica beans and 50% Liberica'},
     {name: 'Coffe Men', price: 200000, image: 'w10.png', description: 'it mix 50% Arabica beans and 50% Robusta'}])
-categoryproduct = CategoryProduct.create!([{ category_id:1, product_id: 1}, { category_id: 2, product_id: 1}, { category_id:1, product_id: 2},
-    { category_id:3, product_id: 2}, { category_id:1, product_id: 3}, { category_id:2, product_id: 3}])
+categoryproduct = ObjectCategory.create!([{ category_id:1, object_id: 1}, { category_id: 2, object_id: 1}, { category_id:1, object_id: 2},
+    { category_id:3, object_id: 2}, { category_id:1, object_id: 3}, { category_id:2, object_id: 3}])

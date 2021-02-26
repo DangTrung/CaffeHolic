@@ -42,7 +42,7 @@
                                         COFFEE'S CATEGORY
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <%@category.each do |i|%>
+                                    <% category.each do |i|%>
                                         <a class="dropdown-item text-decoration-none text-orange font-italic" href="<%=category_path(i.id)%>">
                                             <small><%=i.name%></small>
                                         </a>
@@ -84,7 +84,7 @@
                         <button type="button" class="btn btn-primary btn-orange rounded-0" data-toggle="modal"
                             data-target="#exampleModal">
                             <i class="fas fa-shopping-bag fa-lg"></i>
-                            <small class="font-italic">(2)</small>
+                            <small class="font-italic"><%= current_order.order_products.size%></small>
                         </button>
 
                         <!-- Modal -->
@@ -100,10 +100,11 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="product">
+                                        <%current_order.products.each do |i|%>
                                             <div class="product-items d-flex justify-content-around align-items-center">
                                                 <div class="img Topbar_row_col-3_modal-body_product_product_items_img">
                                                     <img class="pic Topbar_row_col-3_modal-body_product_product_items_img_pic"
-                                                        src="assets/images/coffee/granville.png">
+                                                        src="assets/images/coffee/w1.png">
                                                 </div>
                                                 <div
                                                     class="info Topbar_row_col-3_modal-body_product_product_items_info">
@@ -117,46 +118,11 @@
                                                 </div>
                                             </div>
                                             <hr class="border-t-orange">
-
-                                            <div class="product-items d-flex justify-content-around align-items-center">
-                                                <div class="img Topbar_row_col-3_modal-body_product_product_items_img">
-                                                    <img class="pic Topbar_row_col-3_modal-body_product_product_items_img_pic"
-                                                        src="assets/images/coffee/vietnam-dalat.png">
-                                                </div>
-                                                <div
-                                                    class="info Topbar_row_col-3_modal-body_product_product_items_info">
-                                                    <h6 class="m-0 font-italic text-orange">Coffe Holic</h6>
-                                                    <small class="text-light">100000</small>
-                                                </div>
-                                                <div class="btn Topbar_row_col-3_modal-body_product_product_items_btn">
-                                                    <button class="btn btn-outline-orange">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <hr class="border-t-orange">
-
-                                            <div class="product-items d-flex justify-content-around align-items-center">
-                                                <div class="img Topbar_row_col-3_modal-body_product_product_items_img">
-                                                    <img class="pic Topbar_row_col-3_modal-body_product_product_items_img_pic"
-                                                        src="assets/images/coffee/yolk-roastb.png">
-                                                </div>
-                                                <div
-                                                    class="info Topbar_row_col-3_modal-body_product_product_items_info">
-                                                    <h6 class="m-0 font-italic text-orange">cafeHolic</h6>
-                                                    <small class="text-light">100000</small>
-                                                </div>
-                                                <div class="btn Topbar_row_col-3_modal-body_product_product_items_btn">
-                                                    <button class="btn btn-outline-orange">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                        <%end%>
                                         </div>
                                     </div>
                                     <div class="modal-footer border-t-orange d-flex justify-content-between ml-2">
-                                        <a class="btn btn-outline-orange text-orange font-italic rounded-0" href="#cart"
-                                            onclick="loadCart()" data-dismiss="modal">
+                                        <a class="btn btn-outline-orange text-orange font-italic rounded-0" href="<%=carts_path%>">
                                             View Cart
                                         </a>
                                         <button type="button" class="btn btn-outline-orange font-italic rounded-0"
