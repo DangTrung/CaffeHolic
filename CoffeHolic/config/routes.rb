@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get "/category/:id", to: "homepage#category", as: "category"
   get "/carts", to: "carts#show", as: "carts"
   post "/order_products", to: "order_products#create"
-  
+  get "/login", to: "sessions#new", as: "login"
+  post   "/login", to: "sessions#create"
 end

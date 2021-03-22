@@ -9,7 +9,7 @@ class OrderProductsController < ApplicationController
           flash[:success] = "Added to your cart"
           redirect_to :controller => 'product', :action => 'index'
         else
-          update
+          add_product
           redirect_to :controller => 'product', :action => 'index'
         end
 
@@ -28,6 +28,11 @@ class OrderProductsController < ApplicationController
         @order_product = @order.order_products
       end
     private
+      def add_product
+        @order = current_order
+        @order_product = @order.order_products
+        @order_product
+      end
       def order_product_params
         params.require(:order_product).permit(:quantity, :product_id)
       end
